@@ -1,0 +1,11 @@
+string convert(string s, int numRows) {
+        int i=0,j,n=s.size();
+        vector<string> v(numRows, "");
+        while(i<n){
+            for(j=0; j<numRows && i<n; j++) v[j].push_back(s[i++]);
+            for(j=numRows-2; j>=1 && i<n; j--) v[j].push_back(s[i++]);
+        }
+        string ans="";
+        for(auto x: v) ans+=x;
+        return ans;
+    }
