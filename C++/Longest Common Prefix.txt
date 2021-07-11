@@ -1,0 +1,22 @@
+class Solution {
+public:
+    string longestCommonPrefix(vector<string>& strs) {
+        //take one string to compare each element
+    string s = strs[0];
+    
+    //intitialize the ans string
+    string ans= "";
+    
+    //pick ith element from s and compare ith element in all the strings
+    for(int i =0; i<s.size(); ++i)
+    {
+        for (int j = 1; j < strs.size(); ++j)
+        {
+            if(i >= strs[j].size() || s[i] != strs[j][i]) // i>=str[j].size -- to check if strs[j] has no more characters
+                return ans;
+        }
+        ans.push_back(s[i]);
+    }
+        return ans;
+    }
+};
